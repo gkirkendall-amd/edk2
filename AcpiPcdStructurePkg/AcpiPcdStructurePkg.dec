@@ -1,0 +1,42 @@
+# This Package tests ACPI Structured PCDs
+#
+# Copyright (c) 2020, AMD Incorporated. All rights reserved.<BR>
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = AcpiPcdStructurePkg
+  PACKAGE_GUID                   = C31047A1-BA91-43D5-AF2E-BEE53342DBAA
+  PACKAGE_VERSION                = 1.0
+
+[Includes]
+
+[Guids]
+  gAcpiPcdStructurePkgTokenSpaceGuid     = { 0x7BC98954, 0x40B7, 0x4321, { 0x9B, 0x80, 0x8E, 0x63, 0x11, 0x25, 0xCB, 0xA4 }}
+
+[Protocols]
+
+[PcdsFeatureFlag]
+
+[PcdsFixedAtBuild]
+
+[PcdsDynamic]
+
+  # ACPI structures (0xD0001000 - 0xD0001FFF)
+  #
+  # ACPI FACS Information
+  #
+  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs|{0x0}|EFI_ACPI_6_3_FIRMWARE_ACPI_CONTROL_STRUCTURE|0xD0001000 {
+    <HeaderFiles>
+      IndustryStandard/Acpi.h
+    <Packages>
+      MdePkg/MdePkg.dec
+      AcpiPcdStructurePkg/AcpiPcdStructurePkg.dec
+  }
+
+  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs.Signature|0x53434146  # FACS
+  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs.Flags|0x0
+  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs.Version|0x2

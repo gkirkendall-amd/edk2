@@ -1,0 +1,48 @@
+## @file
+#
+# Copyright (c) 2020, AMD Incorporated. All rights reserved.<BR>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = AcpiPcdStructure
+  MODULE_UNI_FILE                = AcpiPcdStructure.uni
+  FILE_GUID                      = FEB7CA4F-785A-4EF6-9D11-055369F0865F
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = AcpiPcdStructureEntry
+
+#
+#  VALID_ARCHITECTURES           = X64
+#
+
+[Sources]
+  AcpiPcdStructure.c
+  Facs.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  AcpiPcdStructurePkg/AcpiPcdStructurePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  BaseLib
+  PcdLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  DebugLib
+
+[Pcd]
+  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs
+
+[Protocols]
+
+[Depex]
+  TRUE
+
+[UserExtensions.TianoCore."ExtraFiles"]
+  AcpiPcdStructureExtra.uni
