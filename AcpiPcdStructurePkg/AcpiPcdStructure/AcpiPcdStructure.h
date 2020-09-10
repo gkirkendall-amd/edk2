@@ -25,3 +25,19 @@ InstallFacs (
   IN EFI_HANDLE                   ImageHandle,
   IN EFI_SYSTEM_TABLE             *SystemTable
 );
+
+/**
+  Main entry for this driver.
+
+  @param ImageHandle     Image handle this driver.
+  @param SystemTable     Pointer to SystemTable.
+
+  @retval EFI_SUCESS     This function always complete successfully.
+
+**/
+EFI_STATUS
+EFIAPI
+InstallFadt (
+  IN EFI_HANDLE                   ImageHandle,
+  IN EFI_SYSTEM_TABLE             *SystemTable
+);

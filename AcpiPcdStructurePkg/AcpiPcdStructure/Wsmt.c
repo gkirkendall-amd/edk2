@@ -7,7 +7,12 @@
 
 **/
 
-#include "AcpiPcdStructure.h"
+#include <Base.h>
+#include <Uefi.h>
+#include <IndustryStandard/Acpi.h>
+#include <IndustryStandard/WindowsSmmSecurityMitigationTable.h>
+#include <Library/MemoryAllocationLib.h>
+#include <Library/BaseMemoryLib.h>
 
 /**
   Main entry for this driver.
@@ -20,17 +25,22 @@
 **/
 EFI_STATUS
 EFIAPI
-AcpiPcdStructureEntry (
+InstallWsmt (
   IN EFI_HANDLE                   ImageHandle,
   IN EFI_SYSTEM_TABLE             *SystemTable
-)
+  )
 {
 
-  EFI_STATUS  Status;
+  EFI_ACPI_WSMT_TABLE  *Wsmt;
+  EFI_ACPI_WSMT_TABLE  *PcdWsmt;
 
-  Status = InstallFacs (ImageHandle, SystemTable);
+//  PcdWsmt = NULL;
+  PcdWsmt = PcdGetPtr(PcdAcpiWsmt);
 
-  Status = InstallFadt (ImageHandle, SystemTable);
+  Wsmt = AllocateZeroPool(sizeof(EFI_ACPI_WSMT_TABLE));
+
+  CopyMem(Wsmt, PcdWsmt, sizeof(EFI_ACPI_WSMT_TABLE));
+  Wsmt->Header.Length = sizeof(EFI_ACPI_WSMT_TABLE);
 
   return EFI_SUCCESS;
 }

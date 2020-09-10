@@ -29,7 +29,7 @@
   #
   # ACPI FACS Information
   #
-  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs|{0x0}|EFI_ACPI_6_3_FIRMWARE_ACPI_CONTROL_STRUCTURE|0xD0001000 {
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFacs|{0x0}|EFI_ACPI_6_3_FIRMWARE_ACPI_CONTROL_STRUCTURE|0xD0001000 {
     <HeaderFiles>
       IndustryStandard/Acpi.h
     <Packages>
@@ -37,6 +37,39 @@
       AcpiPcdStructurePkg/AcpiPcdStructurePkg.dec
   }
 
-  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs.Signature|0x53434146  # FACS
-  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs.Flags|0x0
-  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs.Version|0x2
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFacs.Signature|0x53434146  # FACS
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFacs.Flags|0x0
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFacs.Version|0x2
+
+  #
+  # ACPI FADT Information
+  #
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFadt|{0x0}|EFI_ACPI_6_3_FIXED_ACPI_DESCRIPTION_TABLE|0xD0001001 {
+    <HeaderFiles>
+      IndustryStandard/Acpi.h
+    <Packages>
+      MdePkg/MdePkg.dec
+      AcpiPcdStructurePkg/AcpiPcdStructurePkg.dec
+  }
+
+  #
+  # ACPI HPET Information
+  #
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiHpet|{0x0}|EFI_ACPI_HIGH_PRECISION_EVENT_TIMER_TABLE_HEADER|0xD0001002 {
+    <HeaderFiles>
+      IndustryStandard/HighPrecisionEventTimerTable.h
+    <Packages>
+      MdePkg/MdePkg.dec
+      AcpiPcdStructurePkg/AcpiPcdStructurePkg.dec
+  }
+
+  #
+  # ACPI WSMT Information
+  #
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiWsmt|{0x0}|EFI_ACPI_WSMT_TABLE|0xD0001003 {
+    <HeaderFiles>
+      IndustryStandard/WindowsSmmSecurityMitigationTable.h
+    <Packages>
+      MdePkg/MdePkg.dec
+      AcpiPcdStructurePkg/AcpiPcdStructurePkg.dec
+  }

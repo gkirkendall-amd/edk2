@@ -21,6 +21,9 @@
 [Sources]
   AcpiPcdStructure.c
   Facs.c
+  Fadt.c
+  Hpet.c
+  Wsmt.c
 
 [Packages]
   MdePkg/MdePkg.dec
@@ -37,7 +40,10 @@
   DebugLib
 
 [Pcd]
-  gAmdCommonPkgTokenSpaceGuid.PcdAcpiFacs
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFacs
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiFadt
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiHpet
+  gAcpiPcdStructurePkgTokenSpaceGuid.PcdAcpiWsmt
 
 [Protocols]
 
